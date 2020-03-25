@@ -15,10 +15,12 @@ class App < Sinatra::Base
   end
 
   get '/first_exercise' do
+    session['foo'] = 'hello'
+    @session = session
+    
     "Your first exercise will be to set your session key-value pair.\nIn the route: get '/set', write a line of code that sets the :foo key of the session hash equal to 'hello'.\nThen, navigate to the '/set' path."
     
-    session[:foo] = 'hello'
-    @session = session
+    
   end
 
   get '/set' do
